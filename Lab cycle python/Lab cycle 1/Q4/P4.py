@@ -18,26 +18,39 @@ def check_if_happy(num):
     sum=0
     while(num>0):
       rem=num%10
-      sum=sum+(rem**2)
       num=num//10
+      sum=sum+(rem**2)
+      
     if(sum==1):
       return True
       break
     else:
       num=sum
-      sum=0
-    return False
+      if(i==100):
+        return False
 if check_if_happy(num)==True:
       print("HAPPY!")
 else:
       print("SAD!")
+
 def happy_within_range():
-    upper=int(input("\nEnter upper range: "))
-    lower=int(input("Enter lower range: "))
-    for i in range(upper,lower):
-        if(check_if_happy(i)==True):
-           print(i)
+     upper=int(input("\nEnter upper range: "))
+     lower=int(input("Enter lower range: "))
+     for i in range(lower,upper+1):
+       ish=check_if_happy(i)
+       if ish:
+         print(i,end=" ")
+         
 happy_within_range()
+print("\n")
+def n_happy():
+  n1=int(input("Enter a value for n "))
+  for i in range(1,n1):
+    ishappy=check_if_happy(i)
+    if ishappy:
+           print(i,end="\n")
+n_happy()
+
 def happy_n_numbers():
   n= int(input("Enter the size to print happy numbers:"))
   count=0
@@ -48,6 +61,3 @@ def happy_n_numbers():
         print(i)
         count=count+1
 happy_n_numbers()
-
-
-

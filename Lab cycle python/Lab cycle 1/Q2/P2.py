@@ -33,9 +33,13 @@ def contribution_of_triangles():#function to show contribution of two triangles
   print("Contribution of triangle 1 over total area:",con1)
   print("Contribution of triangle 2 over total area:",con2)
 contribution_of_triangles()
+
 def triangle1():
   cal_area()
 triangle1()
+
+
 def  triangle2():
   cal_area()
 triangle2()
+quit()

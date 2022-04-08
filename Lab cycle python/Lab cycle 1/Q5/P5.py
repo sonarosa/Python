@@ -8,11 +8,11 @@ Original file is located at
 """
 
 #Develop a program to read a string and perform the following 
-operations:
+#operations:
 #• Print all possible substring 
 #• Print all possible substrings of length K
 #• Print all possible substrings of length K with N distinct 
-characters
+#characters
 #• Print all palindrome substrings
 str=input("Enter a string:")
 def strings(str):#function to print substrings
@@ -44,9 +44,14 @@ def n_distinct(str,k):#function to print substrings of length k with n distinct
             print(s)
 n_distinct(str,k)
 def palindrome_string():#function to find palindrome
-  p=str[::-1]
-  if(p==str):
-     print("Palindrome of given string is:",p)
-  else:
-      print("Not palindrome")
+  siz=len(str)
+  print()
+  print("Palindrome strings are:\n")
+  for i in range(0,siz+1):
+    for j in range(i+1,siz+1):
+       s=str[i:j]
+       p=s[::-1]
+       if(p==s):
+         print(p)
+         print(",")
 palindrome_string()
