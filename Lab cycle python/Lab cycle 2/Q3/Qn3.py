@@ -24,20 +24,14 @@ print("List of each line as element:",line)
 for i in line:
   print(i)
   print("\n")
-for i in line: 
-  if(i['species']=='setosa'):
-    print(i)
 
-d={}
-F1=open("iris.json",'r')
-text=F1.read()
-"""lis=text.split('\n')
-text.pop()
-line=[]"""
-for c in text:
-   (key,value)=c.split()
-   d[]=val
-print(line)
-
-with open('iris.json') as f:
-  if 'setosa' in f.read():
+F1 = open("iris.json",'r')
+if('setosa' in F1.read()):
+  line=F1.readlines()
+  for index,line in enumerate(line):
+    print("Details of setosa".format(index,line.strip()))
+    print(line)
+  print("Word found")
+else:
+  print("Word not found")
+F1.close()
