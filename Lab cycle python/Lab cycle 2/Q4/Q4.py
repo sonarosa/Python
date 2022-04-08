@@ -47,10 +47,12 @@ class Box:
    def cal_ratio(self):
      self.total=self.r1+self.r2+self.r3
      return self.total
+   def show(self):
+     print("Dimensions:",self.length,self.breadth,self.height,end="\n ")
 
 n=int(input("Enter how many boxes you want to create?\n"))
 B1=[] 
-s1=[3]
+s1=[i for i in range(0,n)]
 for i in range(0,n):
   print("\n")
   print("Enter details of box",i+1)
@@ -66,19 +68,10 @@ for i in range(0,n):
   print("\nRECTANGULAR PRISM:")
   B1[i].calc_rect()
   s=B1[i].cal_ratio()
-  print("VOl:area=",s)
+  print("Vol:area=",s)
+  s1[i]=B1[i].total
+  print("\n")
+print("Details of maximum area/volume ratio:",end="\n")
+max_d=s1.index(max(s1))
+B1[max_d].show()
 
-"""n=int(input("How many list of boxes to be created"))
-b.Box=[]
-print("\n\n")
-for b in range(0,n,1):
-  l1=int(input("Enter length:"))
-  b1=int(input("Enter braedth:"))
-  h1=int(input("Enter height:"))
-  b.Box(l1,b1,h1)
-  print("\nCUBE:")
-  b.calc_cube()
-  print("\nSQUARE PRISM:")
-  b.calc_sq()
-  print("\nRECTANGULAR PRISM:")
-  b.calc_rect()"""
