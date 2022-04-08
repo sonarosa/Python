@@ -50,14 +50,3 @@ def n_happy():
     if ishappy:
            print(i,end="\n")
 n_happy()
-
-def happy_n_numbers():
-  n= int(input("Enter the size to print happy numbers:"))
-  count=0
-  i=0
-  while(count<n):
-      i=i+1
-      if(check_if_happy(i)==True):
-        print(i)
-        count=count+1
-happy_n_numbers()
