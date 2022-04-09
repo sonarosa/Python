@@ -16,22 +16,64 @@ v. Sort the list of dictionaries according to the total area are sepal and petal
 
 
 F1=open("iris.json",'r')
-line=[]
-text=F1.read()
-line.append(text)
-print("List of each line as element:",line)
 
-for i in line:
+text=F1.read()
+line=[]
+line.append(text)
+print("List of each line as elements:\n",line)
+
+line1=json.loads(text)
+line2=line1
+for i in line1:
   print(i)
   print("\n")
+print("Details of species 'setosa'")
+for i in line1:
+  if (i['species']=='setosa'):
+      print(i)
+l1=[]
+for i in line1:
+  if i['species'] not in l1:
+    l1.append(i['species'])
+  print(l1)
+a_s1=[]
+a_s2=[]
+a_s3=[]
+a_p1=[]
+a_p2=[]
+a_p3=[]
+for i in line2:
+  parea=(i['sepalLength']*i['sepalWidth'])
+  sarea=(i['petalLength']*i['petalWidth'])
+  tarea=parea+sarea
+  i.update({'Total area=':tarea})
+  if i['species']==l1[0]:
+     a_s1.append(i['sepalLength']*i['sepalWidth'])
+     a_p1.append(i['petalLength']*i['petalWidth'])
+  elif i['species']==l1[1]:
+     a_s2.append(i['sepalLength']*i['sepalWidth'])
+     a_p2.append(i['petalLength']*i['petalWidth'])
+  elif i['species']==l1[2]:
+    a_s3.append(i['sepalLength']*i['sepalWidth'])
+    a_p3.append(i['petalLength']*i['petalWidth'])
+print(a_s1)
+print(a_s2)
+print(a_s3)
+print(a_s1)
+print(a_p1)
+print(a_p2)
+print(a_p3)
 
-F1 = open("iris.json",'r')
-if('setosa' in F1.read()):
-  line=F1.readlines()
-  for index,line in enumerate(line):
-    print("Details of setosa".format(index,line.strip()))
-    print(line)
-  print("Word found")
-else:
-  print("Word not found")
+print(l1[0])
+print("Maximum sepal area : ",max(a_s1))
+print("Minimum petal area  : ",min(a_p1))
+print(" ")
+print(l1[1])
+print("Maximum sepal area : ",max(a_s2))
+print("Minimum petal area  : ",min(a_p2))
+print(" ")
+print(l1[2])
+print("Maximum sepal area : ",max(a_s3))
+print("Minimum petal area  : ",min(a_p3))
+
 F1.close()
